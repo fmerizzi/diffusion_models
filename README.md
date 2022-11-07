@@ -7,6 +7,7 @@
 - U-Net is a popular semantic segmentation architecture, whose main idea is that it progressively downsamples and then upsamples its input image, and adds skip connections between layers having the same resolution. These help with gradient flow and avoid introducing a representation bottleneck, unlike usual autoencoders. Based on this, one can view diffusion models as denoising autoencoders without a bottleneck.
 
 ## training 
+Eurosat dataset, 5 epochs
 
 ![org1](https://github.com/fmerizzi/diffusion_models/blob/main/images/2022-11-07%2012:13:17.693488.png)
 
