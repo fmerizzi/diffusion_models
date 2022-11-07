@@ -5,6 +5,7 @@
 - The transition distributions in the markov chains are gaussians, where the forward process requires a variance schedule and the reverse process parameters are learned 
 - The training objective is to maximize the likelihood of the training data. This is manifested as tuning of the model parameters to minimize the variational upper bound of the negative log likelihood of the data. 
 - U-Net is a popular semantic segmentation architecture, whose main idea is that it progressively downsamples and then upsamples its input image, and adds skip connections between layers having the same resolution. These help with gradient flow and avoid introducing a representation bottleneck, unlike usual autoencoders. Based on this, one can view diffusion models as denoising autoencoders without a bottleneck.
+- The network takes two inputs, the noisy images and the variances of their noise components. The latter is required since denoising a signal requires different operations at different levels of noise. We transform the noise variances using sinusoidal embeddings, similarly to positional encodings used both in transformers and NeRF. This helps the network to be highly sensitive to the noise level, which is crucial for good performance. We implement sinusoidal embeddings using a Lambda layer.
 
 ## training 
 Eurosat dataset, 5 epochs
